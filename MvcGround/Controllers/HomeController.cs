@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcGround.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,17 @@ namespace MvcGround.Controllers
         }
         public ActionResult Projects()
         {
+            return View();
+        }
+        public ActionResult FeverCheck()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult FeverCheck(double input)
+        {
+            ViewBag.Result = CheckNumber.NumberCheck(input);
             return View();
         }
     }

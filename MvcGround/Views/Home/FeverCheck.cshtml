@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "FeverCheck";
+}
+
+<h2>FeverCheck</h2>
+
+<h6>Do you have a fever?</h6>
+
+@using (Html.BeginForm("FeverCheck", "Home", FormMethod.Post))
+{
+    <input type="number" name="input" />
+    <input type="submit" value="submit" class="btn btn-primary" />
+}
+
+@if(ViewBag.Result != null)
+{
+    @ViewBag.Result;
+}
