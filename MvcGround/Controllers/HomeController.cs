@@ -30,6 +30,11 @@ namespace MvcGround.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult GuessingGame()
+        {
+            return View();
+        }
         [HttpPost]
 
         public ActionResult FeverCheck(double input)
@@ -46,6 +51,12 @@ namespace MvcGround.Controllers
                
             
                 
+        }
+        [HttpPost]
+        public ActionResult GuessingGame(int guess)
+        {
+                ViewBag.GuessResult = CheckNumber.CheckRndNumber(guess);
+                return View();
         }
       
     }
