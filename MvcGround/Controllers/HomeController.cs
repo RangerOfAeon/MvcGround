@@ -33,9 +33,20 @@ namespace MvcGround.Controllers
         [HttpPost]
 
         public ActionResult FeverCheck(double input)
-        {
-            ViewBag.Result = CheckNumber.NumberCheck(input);
-            return View();
+        {     
+           if(input == 0)
+            {
+                return View();
+            }
+           else
+            {
+                ViewBag.Result = CheckNumber.NumberCheck(input);
+                return View();
+            }
+               
+            
+                
         }
+      
     }
 }

@@ -9,11 +9,11 @@
 
 @using (Html.BeginForm("FeverCheck", "Home", FormMethod.Post))
 {
-    <input type="number" name="input" />
+    <input type="number" name="input" value="0" />
     <input type="submit" value="submit" class="btn btn-primary" />
 }
 
-@if(ViewBag.Result != null)
+@if (ViewBag.Result != null)
 {
     @ViewBag.Result;
 }
