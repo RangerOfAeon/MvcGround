@@ -8,6 +8,7 @@ namespace MvcGround.Models
     public class CheckNumber
     {
         public static int startProcess = 0;
+        public static int failCounter = 0;
         public static int HiddenNumber;
         
         public static string NumberCheck(double input)
@@ -43,14 +44,17 @@ namespace MvcGround.Models
             {
                 guessResult = "You got it right!";
                 startProcess = 0;
+                failCounter = 0;
             }
             if(guess < HiddenNumber && guess >= 0)
             {
                 guessResult = "Too low.";
+                failCounter++;
             }
             if(guess > HiddenNumber && guess <= 100)
             {
                 guessResult = "Too High.";
+                failCounter++;
             }
             if(guess <= 0 || guess >= 100)
             {

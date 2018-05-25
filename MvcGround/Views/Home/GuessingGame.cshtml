@@ -4,17 +4,21 @@
 }
 
 <h2>GuessingGame</h2>
+<div class="col-lg-6">
+    @using (Html.BeginForm("GuessingGame", "Home", FormMethod.Post))
+    {
+        <input type="number" name="guess" value="0" />
+        <input type="submit" value="submit" class="btn btn-primary" />
+    }
 
-@using (Html.BeginForm("GuessingGame", "Home", FormMethod.Post))
-{
-    <input type="number" name="guess" value="0" />
-    <input type="submit" value="submit" class="btn btn-primary" />
-}
+    @if (Session["GuessResult"] != null)
+    {
+        @Session["GuessResult"];
+        <br />
+        <p>Attempts: @Session["FailCounter"]</p>
+    }
+</div>
+@*<div class="col-lg-6">
 
-@if (ViewBag.GuessResult != null)
-{
-    @ViewBag.GuessResult;
-}
-
-
+</div>*@
 

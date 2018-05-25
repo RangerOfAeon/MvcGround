@@ -55,7 +55,9 @@ namespace MvcGround.Controllers
         [HttpPost]
         public ActionResult GuessingGame(int guess)
         {
-                ViewBag.GuessResult = CheckNumber.CheckRndNumber(guess);
+            Session["GuessResult"] = CheckNumber.CheckRndNumber(guess);
+            Session["FailCounter"] = CheckNumber.failCounter;
+            //ViewBag.GuessResult = CheckNumber.CheckRndNumber(guess);
                 return View();
         }
       
