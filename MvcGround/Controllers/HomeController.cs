@@ -37,15 +37,15 @@ namespace MvcGround.Controllers
         }
         [HttpPost]
 
-        public ActionResult FeverCheck(double input)
+        public ActionResult FeverCheck(double input)                            //När använderan skickar sin temp, så startar denna ActionResult.
         {     
-           if(input == 0)
+           if(input == 0)                                                       //Om tempen är 0, så skriver sidan inte ut resultatet.
             {
                 return View();
             }
            else
             {
-                ViewBag.Result = CheckNumber.NumberCheck(input);
+                ViewBag.Result = CheckNumber.NumberCheck(input);                //Sätter värdet från input och sätter det i ViewBag.Result.
                 return View();
             }
                

@@ -7,26 +7,25 @@ namespace MvcGround.Models
 {
     public class CheckNumber
     {
-        public static int startProcess = 0;
-        public static int failCounter = 0;
-        public static int HiddenNumber;
+        public static int startProcess = 0;                 //Variabeln som håller koll på om GuessingGame ska fortsätta med samma nummer, eller skapa ett nytt nummer.
+        public static int failCounter = 0;                  //Variablen som håller koll på hur många gånger spelaren har gissat med GuessingGame.
+        public static int HiddenNumber;                     //Variablen som håller det gömda numret på GuessingGame.
 
-        public static string NumberCheck(double input)
+        public static string NumberCheck(double input)      //Metoden för att kolla tempen på använderan.
         {
-            string Result;
-
+            string Result;                                  //Resultat som kommer få ett värde beronde på värdet som användaren inputade.
 
             if (input >= 38)
             {
-                Result = "You have a hot fever";
+                Result = "You have a hot fever";            //Om användaren har en temp på 38 eller högre, så skriver sidan ut att användaren har en hög feber.
             }
             else if (input <= 36)
             {
-                Result = "You have a cold fever";
+                Result = "You have a cold fever";           //Om användaren har en temp på 36 eller lägre, så skriver sidan ut att användaren har en låg feber.
             }
             else
             {
-                Result = "You don't have a fever";
+                Result = "You don't have a fever";          //Om användaren har en annan temperatur, så skriver sidan ut att användaren inte har en feber.
             }
             return Result;
         }

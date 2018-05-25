@@ -7,13 +7,13 @@
 
 <h6>Do you have a fever?</h6>
 
-@using (Html.BeginForm("FeverCheck", "Home", FormMethod.Post))
+@using (Html.BeginForm("FeverCheck", "Home", FormMethod.Post))              //Gör så att värdet skickas till HomeController
 {
-    <input type="number" name="input" value="0" />
-    <input type="submit" value="submit" class="btn btn-primary" />
+    <input type="number" name="input" value="0" />                          //Inputen där användaren skriver in sin temeratur
+    <input type="submit" value="submit" class="btn btn-primary" />          //Knappen som skickar värdet.
 }
 
-@if (ViewBag.Result != null)
+@if (ViewBag.Result != null)                //Om ViewBag.Result inte har något värde, så skriver den inte ut resultatet.
 {
-    @ViewBag.Result;
+    @ViewBag.Result;                        //Skriver ut ViewBag.Result
 }
