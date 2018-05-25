@@ -52,12 +52,11 @@ namespace MvcGround.Controllers
             
                 
         }
-        [HttpPost]
+        [HttpPost]                                                              //När spelaren skickar sin gissning på Guessing Game, så startar denna ActionResult. 
         public ActionResult GuessingGame(int guess)
         {
-            Session["GuessResult"] = CheckNumber.CheckRndNumber(guess);
+            Session["GuessResult"] = CheckNumber.CheckRndNumber(guess);         //Den tar värderna guess och failCounter, och sätter i dom i sessions.
             Session["FailCounter"] = CheckNumber.failCounter;
-            //ViewBag.GuessResult = CheckNumber.CheckRndNumber(guess);
                 return View();
         }
       

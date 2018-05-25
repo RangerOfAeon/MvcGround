@@ -1,24 +1,21 @@
 ﻿
 @{
     ViewBag.Title = "GuessingGame";
+
+}
+<h2>GuessingGame</h2>
+<br />
+<h4>Guess a number between 1 and 100!</h4>
+
+@using (Html.BeginForm("GuessingGame", "Home", FormMethod.Post))        //Gör så att värdet skickas till HomeCotroller
+{
+    <input type="number" name="guess" value="0" />                          //Inputen som spelaren skriver sin gissning i.
+    <input type="submit" value="submit" class="btn btn-primary" />          //Knappen som skickar värdet.
 }
 
-<h2>GuessingGame</h2>
-<div class="col-lg-6">
-    @using (Html.BeginForm("GuessingGame", "Home", FormMethod.Post))
-    {
-        <input type="number" name="guess" value="0" />
-        <input type="submit" value="submit" class="btn btn-primary" />
+@if (Session["GuessResult"] != null)                //Om det inte finns ett värde i GuessResult, så skriver den ite ut ett resultat.
+{
+    @Session["GuessResult"];                        //Skriver ut GuessResult, och hur många gånger spelaren har försökt.
+    <br />
+    <p>Attempts: @Session["FailCounter"]</p>
     }
-
-    @if (Session["GuessResult"] != null)
-    {
-        @Session["GuessResult"];
-        <br />
-        <p>Attempts: @Session["FailCounter"]</p>
-    }
-</div>
-@*<div class="col-lg-6">
-
-</div>*@
-
