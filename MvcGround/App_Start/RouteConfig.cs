@@ -24,6 +24,11 @@ namespace MvcGround
                defaults: new { controller = "Home", action = "GuessingGame" }
            );
             routes.MapRoute(
+               name: "ViewPeople",
+               url: "ViewPeople/",
+               defaults: new { controller = "Home", action = "ViewPeople" }
+           );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

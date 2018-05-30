@@ -35,6 +35,7 @@ namespace MvcGround.Controllers
         {
             return View();
         }
+
         [HttpPost]
 
         public ActionResult FeverCheck(double input)                            //När använderan skickar sin temp, så startar denna ActionResult.

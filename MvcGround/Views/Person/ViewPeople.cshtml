@@ -1,0 +1,24 @@
+﻿@model MvcGround.Models.PeopleViewModel
+@{
+    ViewBag.Title = "ViewPeople";
+}
+
+<h2>ViewPeople</h2>
+<table class="table table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(Model => Model.Person.Name)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Person.PhoneNumber)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Person.City)</th>
+    </tr>
+        @foreach (var item in Model.People)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.City)</td>
+            </tr>
+        }
+    
+
+
+</table>
