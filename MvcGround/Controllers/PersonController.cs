@@ -42,9 +42,18 @@ namespace MvcGround.Controllers
         {
             return View();
         }
-        public ActionResult Delete()
+        public ActionResult Delete(string id)
         {
-            return View();
+            ViewModels match = PeopleViewModel.People.Find(r => r.Name == id);
+            if(match != null && PeopleViewModel.People.Contains(match)) {
+                PeopleViewModel.People.Remove(match);
+            }
+            return RedirectToAction("ViewPeople"); 
+        }
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            return RedirectToAction("ViewPeople");
         }
         [HttpPost] 
         public ActionResult Create(string name, string phoneNumber, string city)
