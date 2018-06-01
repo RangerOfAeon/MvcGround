@@ -36,6 +36,10 @@ namespace MvcGround.Controllers
                 PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
 
             }
+            if(Request.IsAjaxRequest())
+            {
+                return PartialView("_PartialPerson", model);
+            }
             return View(model);
         }
         public ActionResult Create()
