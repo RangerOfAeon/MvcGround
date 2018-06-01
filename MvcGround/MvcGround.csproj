@@ -133,6 +133,7 @@
     <Content Include="Views\Home\GuessingGame.cshtml" />
     <Content Include="Views\Person\ViewPeople.cshtml" />
     <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\_PartialPerson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

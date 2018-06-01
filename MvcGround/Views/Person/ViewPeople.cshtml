@@ -24,12 +24,17 @@
     </tr>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
-                <td>@Html.DisplayFor(modelItem => item.City)</td>
-                <td>@Html.ActionLink("Delete", "Delete", new { id = item.Name })</td>
-            </tr>
+    <tr>
+        @Html.Partial("_PartialPerson", item)
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Name })
+        </td>
+
+        @*<td>@Html.DisplayFor(modelItem => item.Name)</td>
+        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+        <td>@Html.DisplayFor(modelItem => item.City)</td>
+        <td>@Html.ActionLink("Delete", "Delete", new { id = item.Name })</td>*@
+    </tr>
         }
     
 
