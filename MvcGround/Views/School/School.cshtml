@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MvcGround.Models.School.Student>
+
+@{
+    ViewBag.Title = "School";
+}
+
+<h2>School</h2>
+
+@foreach(var item in Model)
+{
+<div>
+    @*<h4>@item.FirstName</h4>*@
+    <p>@item.FirstName</p>
+    <p>@item.LastName</p>
+    @*<p>@item.Students</p>*@
+    <hr />
+</div>
+}
