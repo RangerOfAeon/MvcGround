@@ -12,5 +12,12 @@ namespace MvcGround.Models.School
         public string LastName { get; set; }
         public List<Course> Courses { get; set; }
         public List<Assignment> Assignments { get; set; }
+
+        public Student()
+        {
+            Courses = new List<Course>();
+            Assignments = new List<Assignment>();
+        }
     }
+
 }

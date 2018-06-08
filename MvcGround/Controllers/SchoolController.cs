@@ -14,7 +14,10 @@ namespace MvcGround.Controllers
         // GET: School
         public ActionResult School()
         {
-            return View(db.Students.ToList());
+
+            var model = db.Students.Include("Courses")
+                                    .Include("Assignments").ToList();
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)
