@@ -1,18 +1,43 @@
-﻿@model IEnumerable<MvcGround.Models.School.Student>
+﻿@model IEnumerable<MvcGround.Models.School.Course>
 
 @{
     ViewBag.Title = "School";
 }
 
-<h2>School</h2>
+<h2>Courses</h2>
 
-@foreach(var item in Model)
+@Html.ActionLink("Create Course", "Create")
+
+@Html.ActionLink("Create Assignment", "CreateAssignment")
+
+
+@foreach (var item in Model)
 {
-<div>
-    @*<h4>@item.FirstName</h4>*@
-    <p>@item.FirstName</p>
-    <p>@item.LastName</p>
+
+    <h2>@item.CourseName</h2>
+    foreach (var item2 in item.Assignments)
+    {
+        <p><b>Assignments:</b> @item2.AssignmentName</p>
+        <hr />
+    }
+    foreach (var item3 in item.Teachers)
+    {
+        <p><b>Teachers:</b> @item3.FirstName @item3.LastName</p>
+        @*<td>@item3.LastName</td>*@
+        <hr />
+    }
+    foreach (var item4 in item.Students)
+    {
+        <p><b>Students:</b> @item4.FirstName @item4.LastName</p>
+        @*<td>@item4.FirstName</td>
+            <td>@item4.LastName</td>*@
+        <hr />
+    }
+
+
     @*<p>@item.Students</p>*@
-    <hr />
-</div>
+
 }
+
+@*<h4>@item.FirstName</h4>*@
+

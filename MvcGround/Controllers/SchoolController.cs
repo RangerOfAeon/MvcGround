@@ -15,9 +15,46 @@ namespace MvcGround.Controllers
         public ActionResult School()
         {
 
-            var model = db.Students.Include("Courses")
+            var model = db.Courses.Include("Students")
+                                    .Include("Teachers")
                                     .Include("Assignments").ToList();
+
+            ModelState.Clear();
             return View(model);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Course NewCourse)
+        {
+            if(ModelState.IsValid)
+            {
+                db.Courses.Add(NewCourse);
+                db.SaveChanges();
+                return RedirectToAction("School", new { Id = NewCourse.Id });
+            }
+            return View(NewCourse);
+        }
+
+        public ActionResult CreateAssignment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateAssignment(Assignment NewAssignment)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Assignments.Add(NewAssignment);
+                db.SaveChanges();
+                return RedirectToAction("School", new { Id = NewAssignment.Id });
+            }
+            return View(NewAssignment);
         }
 
         protected override void Dispose(bool disposing)

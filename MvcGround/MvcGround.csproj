@@ -129,6 +129,10 @@
     <Compile Include="Migrations\201806080947354_Second.Designer.cs">
       <DependentUpon>201806080947354_Second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806111257199_Third.cs" />
+    <Compile Include="Migrations\201806111257199_Third.Designer.cs">
+      <DependentUpon>201806111257199_Third.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckNumber.cs" />
     <Compile Include="Models\PeopleViewModel.cs" />
@@ -157,6 +161,9 @@
     <Content Include="Views\Person\Create.cshtml" />
     <Content Include="Views\Person\_PartialPerson.cshtml" />
     <Content Include="Views\School\School.cshtml" />
+    <Content Include="Views\School\Create.cshtml" />
+    <Content Include="Views\School\CreateAssignment.cshtml" />
+    <Content Include="Views\School\CreateStudent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806080947354_Second.resx">
       <DependentUpon>201806080947354_Second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806111257199_Third.resx">
+      <DependentUpon>201806111257199_Third.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
