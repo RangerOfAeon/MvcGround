@@ -5,22 +5,23 @@
 
 <h2>ViewPeople</h2>
 
-<form method="get">
+@*<form method="get">*@
 
-@*@@*using (Ajax.BeginForm(
+@*<input type="search" name="searchTerm" />
+    <input type="submit" value="Search by Name" />*@
+@*</form>*@
+
+@using (Ajax.BeginForm(
     new AjaxOptions
     {
-        HttpMethod = "get",
+        HttpMethod = "post",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = "peopleList"
     }))
-{*@
+{
     <input type="search" name="searchTerm" />
     <input type="submit" value="Search by Name" />
-@*}*@
-
-
-</form>
+}
 <br />
 
 <p>@Html.ActionLink("Create New", "Create")</p>
@@ -33,41 +34,4 @@
         <th>@Html.DisplayNameFor(Model => Model.City)</th>
         <th></th>
     </tr>*@
-
-<div class="row">
-    <div class="panel panel-body">
-        <div class="col-lg-3">
-            <p><b>Name</b></p>
-        </div>
-
-        <div class="col-lg-3">
-            <p><b>Phone Number</b></p>
-        </div>
-
-        <div class="col-lg-3">
-            <p><b>City</b></p>
-        </div>
-
-        <div class="col-lg-3">
-        </div>
-    </div>
-        @foreach (var item in Model)
-        {
-            @*<tr >*@
-            @Html.Partial("_PartialPerson", item)
-            @*<td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Name })
-            </td>*@
-
-            @*<td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
-            <td>@Html.DisplayFor(modelItem => item.City)</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = item.Name })</td>*@
-            @*</tr>*@
-        }
-    
-</div>
-      
-
-
-@*</table>*@
+@Html.Partial("_PartialPerson", Model)

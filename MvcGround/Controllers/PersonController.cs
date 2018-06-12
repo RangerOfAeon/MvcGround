@@ -12,7 +12,7 @@ namespace MvcGround.Controllers
         public static int Start;
 
         // GET: Person
-        [HttpGet]
+        //[HttpGet]
         public ActionResult ViewPeople(string searchTerm = null)
         {
             var model =
@@ -22,10 +22,10 @@ namespace MvcGround.Controllers
                 .Where(r => searchTerm == null || (r.Name.Contains(searchTerm) || r.City.Contains(searchTerm)))
                 .Take(10)
                 .Select(r => r);
-                //where r => searchTerm == null || r.Name.StartsWithsearchTerm
-                //select r;
+            //where r => searchTerm == null || r.Name.StartsWithsearchTerm
+            //select r;
 
-
+            
 
             Start++;
             if (Start == 1)
@@ -36,6 +36,11 @@ namespace MvcGround.Controllers
                 PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
 
             }
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_PartialPerson", model);
+            }
+
             return View(model);
         }
         public ActionResult Create()
@@ -61,6 +66,5 @@ namespace MvcGround.Controllers
             PeopleViewModel.People.Add(new ViewModels { Name = name, PhoneNumber = phoneNumber, City = city });
             return RedirectToAction("ViewPeople");
         }
-       
     }
 }
