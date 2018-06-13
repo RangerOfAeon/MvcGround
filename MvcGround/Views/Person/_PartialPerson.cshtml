@@ -1,6 +1,6 @@
-﻿@model MvcGround.Models.ViewModels
+﻿@model IEnumerable<MvcGround.Models.ViewModels>
 
-<div class="row" id="peopleList">
+@*<div class="row" id="peopleList">
     <div class="panel panel-body">
         <div class="col-lg-3">
             <p><b>Name</b></p>
@@ -16,25 +16,31 @@
 
         <div class="col-lg-3">
         </div>
-    </div>
-
+    </div>*@
+<div id="peopleList">
     @foreach (var item in Model)
     {
     <div class="panel panel-body">
         <div class="col-lg-3">
-            <p>@Html.DisplayFor(modelItem => Model.Name)</p>
+            <p>@Html.DisplayFor(modelItem => item.Name)</p>
         </div>
 
         <div class="col-lg-3">
-            <p>@Html.DisplayFor(modelItem => Model.PhoneNumber)</p>
+            <p>@Html.DisplayFor(modelItem => item.PhoneNumber)</p>
         </div>
 
         <div class="col-lg-3">
-            <p>@Html.DisplayFor(modelItem => Model.City)</p>
+            <p>@Html.DisplayFor(modelItem => item.City)</p>
         </div>
 
         <div class="col-lg-3">
-            <p>@Html.ActionLink("Delete", "Delete", new { id = Model.Name })</p>
+            <p>@Ajax.ActionLink("Delete", "Delete", new { id = item.Name },
+              new AjaxOptions
+              {
+                  HttpMethod = "get",
+                  InsertionMode = InsertionMode.ReplaceWith,
+                  UpdateTargetId = "peopleList"
+              })</p>
         </div>
     </div>
     }

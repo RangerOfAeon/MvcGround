@@ -24,7 +24,18 @@
 }
 <br />
 
-<p>@Html.ActionLink("Create New", "Create")</p>
+@*<p>@Html.ActionLink("Create New", "Create")</p>*@
+@using (Ajax.BeginForm(
+    new AjaxOptions
+    {
+        HttpMethod = "post",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "peopleList"
+    }))
+{
+   
+}
+@Html.Partial("Create")
 <br />
 
 @*<table class="table table-striped">
@@ -34,4 +45,23 @@
         <th>@Html.DisplayNameFor(Model => Model.City)</th>
         <th></th>
     </tr>*@
-@Html.Partial("_PartialPerson", Model)
+<div class="row">
+    <div class="panel panel-body">
+        <div class="col-lg-3">
+            <p><b>Name</b></p>
+        </div>
+
+        <div class="col-lg-3">
+            <p><b>Phone Number</b></p>
+        </div>
+
+        <div class="col-lg-3">
+            <p><b>City</b></p>
+        </div>
+
+        <div class="col-lg-3">
+        </div>
+    </div>
+
+    @Html.Partial("_PartialPerson", Model)
+    </div>

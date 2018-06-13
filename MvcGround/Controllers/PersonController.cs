@@ -11,6 +11,7 @@ namespace MvcGround.Controllers
     {
         public static int Start;
 
+
         // GET: Person
         //[HttpGet]
         public ActionResult ViewPeople(string searchTerm = null)
@@ -34,6 +35,12 @@ namespace MvcGround.Controllers
                 PeopleViewModel.People.Add(new ViewModels { Name = "Thomas", PhoneNumber = "0721234567", City = "Skara" });
                 PeopleViewModel.People.Add(new ViewModels { Name = "Elliot", PhoneNumber = "0729876543", City = "Skara" });
                 PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
+                PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
+                PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
+                PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
+                PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
+                PeopleViewModel.People.Add(new ViewModels { Name = "Linda", PhoneNumber = "0721239876", City = "Alingsås" });
+
 
             }
             if (Request.IsAjaxRequest())
@@ -53,18 +60,34 @@ namespace MvcGround.Controllers
             if(match != null && PeopleViewModel.People.Contains(match)) {
                 PeopleViewModel.People.Remove(match);
             }
-            return RedirectToAction("ViewPeople"); 
+            return PartialView("_PartialPerson", PeopleViewModel.People); 
         }
+        //public ActionResult Edit(string id)
+        //{
+        //    var model = 
+        //}
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            return RedirectToAction("ViewPeople");
+            return RedirectToAction("ViewPeople", PeopleViewModel.People);
         }
         [HttpPost] 
-        public ActionResult Create(string name, string phoneNumber, string city)
+        public ActionResult Create(ViewModels person)
         {
-            PeopleViewModel.People.Add(new ViewModels { Name = name, PhoneNumber = phoneNumber, City = city });
-            return RedirectToAction("ViewPeople");
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    PeopleViewModel.People.Add(new ViewModels { Name = person.Name, PhoneNumber = person.PhoneNumber, City = person.City });
+                }
+                return RedirectToAction("ViewPeople");
+            }
+            catch
+            {
+                return View();
+            }
+           
+            
         }
     }
 }
