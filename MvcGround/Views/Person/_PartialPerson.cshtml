@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcGround.Models.ViewModels>
+﻿@model MvcGround.Models.PeopleViewModel
 
 @*<div class="row" id="peopleList">
     <div class="panel panel-body">
@@ -18,7 +18,7 @@
         </div>
     </div>*@
 <div id="peopleList">
-    @foreach (var item in Model)
+    @foreach (var item in Model.People)
     {
     <div class="panel panel-body">
         <div class="col-lg-3">

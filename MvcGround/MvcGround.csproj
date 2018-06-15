@@ -159,7 +159,7 @@
     <Content Include="Views\Home\FeverCheck.cshtml" />
     <Content Include="Views\Home\GuessingGame.cshtml" />
     <Content Include="Views\Person\ViewPeople.cshtml" />
-    <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\_Create.cshtml" />
     <Content Include="Views\Person\_PartialPerson.cshtml" />
     <Content Include="Views\School\School.cshtml" />
     <Content Include="Views\School\Create.cshtml" />

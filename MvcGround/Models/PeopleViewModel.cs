@@ -7,7 +7,10 @@ namespace MvcGround.Models
 {
     public class PeopleViewModel
     {
-        public static List<ViewModels> People = new List<ViewModels>();
+        //public List<ViewModels> People = new List<ViewModels>();
+        //public ViewModels Person = new ViewModels();
+        public List<ViewModels> People { get; set; }
+        public ViewModels Person { get; set; }
 
     }
     //public void OriginalPeople()
