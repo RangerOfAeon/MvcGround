@@ -6,7 +6,7 @@
 
 <h2>CreateAssignment</h2>
 
-@using (Html.BeginForm("Course", "Assignment")) 
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
@@ -22,6 +22,8 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.DropDownListFor(p => p.Course.Id,
+       new SelectList(Enum.GetValues(typeof())
         @*@foreach (var item in Model.Course)
         {
         <input type="radio" name="Courses" value="@item.Course.Id" class="form-control" />
@@ -41,6 +43,3 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
