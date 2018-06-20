@@ -10,11 +10,11 @@ namespace MvcGround.Controllers
     public class SchoolController : Controller
     {
         SchoolContext db = new SchoolContext();
-
+        
         // GET: School
         public ActionResult School()
         {
-
+            
             var model = db.Courses.Include("Students")
                                     .Include("Teachers")
                                     .Include("Assignments").ToList();
@@ -48,10 +48,14 @@ namespace MvcGround.Controllers
         [HttpPost]
         public ActionResult CreateAssignment(Assignment NewAssignment)
         {
+            List<Course> WhichCourse = new List<Course>();
             if (ModelState.IsValid)
             {
                 db.Assignments.Add(NewAssignment);
-                db.SaveChanges();
+
+                //Course match = WhichCourse(r => r.Name == id);
+                //if (match != null && CurrentPeople.Contains(match))
+                    db.SaveChanges();
                 return RedirectToAction("School", new { Id = NewAssignment.Id });
             }
             return View(NewAssignment);

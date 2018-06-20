@@ -159,6 +159,10 @@
     <Compile Include="Migrations\201806111257199_Third.Designer.cs">
       <DependentUpon>201806111257199_Third.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806200818218_Fourth.cs" />
+    <Compile Include="Migrations\201806200818218_Fourth.Designer.cs">
+      <DependentUpon>201806200818218_Fourth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckNumber.cs" />
     <Compile Include="Models\Identity\AccountViewModels.cs" />
@@ -229,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806111257199_Third.resx">
       <DependentUpon>201806111257199_Third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806200818218_Fourth.resx">
+      <DependentUpon>201806200818218_Fourth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
